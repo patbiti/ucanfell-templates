@@ -1,0 +1,1008 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页</title>
+<link href="style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+</head>
+
+<body>
+<div class="header">
+	<div class="mid">
+        <ul>
+            <li><a href="#">蔚蓝星球</a></li>
+            <li><a href="#">客户端</a></li>
+            <li><a href="#">系列</a></li>
+        </ul>
+        <div class="search">
+            <input type="text"/>
+            <a class="search_btn"></a>
+        </div>
+        <div class="clear "></div>
+    </div>
+</div>
+
+<div class="roll_20140624" id="rollimg">
+	<div class="roll_nav">
+    	<div class="roll_nav1">
+        	 <div class="roll_nav_login">
+            	<input type="text" value="账号"/>
+                <input type="text" value="密码"/>
+            	<a href="#">登录</a>
+                <a href="#">注册</a>
+            </div>
+            <a href="#" class="roll_nav_logo"><img src="images/logo.png"/></a>
+            <span class="roll_nav_list">
+                <a href="#">首页</a>
+                <a href="#">频道</a>
+                <a href="#">专题</a>
+                <a href="#">系列</a>
+                <a href="#">幕后</a>
+                <a href="#">活动</a>
+            </span>
+    
+        </div>
+    </div>
+	<div class="top">
+		<ul>
+			<li>
+                <div class="image" style="background:url(images/banner02.jpg) no-repeat 50% 0">
+                	<a href="#" target="_blank"></a>
+                </div>
+            </li>
+			<li>
+                <div class="image" style="background:url(images/banner01.jpg) no-repeat 50% 0">
+                	<a href="#" target="_blank"></a>
+                </div>
+            </li>
+			<li>
+                <div class="image" style="background:url(images/banner01.jpg) no-repeat 50% 0">
+               		<a href="#" target="_blank"></a>
+                </div>
+            </li>
+		</ul>
+	</div>
+	<div class="no_list"></div>
+    <a href="javascript:;" class="top_btn_prev"></a>
+    <a href="javascript:;" class="top_btn_next"></a>
+    
+</div>
+
+
+<script type="text/javascript">
+function funRoll(div){
+	var obj=$("#"+div),
+		top=obj.find(".top"),
+		lis=top.find("li"),
+		len=lis.length-1,
+		list=obj.find(".no_list"),
+		btnPrev=obj.find(".top_btn_prev"),
+		btnNext=obj.find(".top_btn_next");
+	var str="",curr=0;
+	for(var i=0;i<=len;i++){
+		str+='<a href="javascript:void(0);"></a>';
+	}
+	list.html(str);
+	var as=list.find("a");
+	var timer=null;
+	function funPlay(){
+		timer=setInterval(funGo,3000);
+	}
+	function funPause(){
+		clearInterval(timer);
+	}
+	function funGo(){
+		curr=funNext(curr);
+		funShow(curr);
+	}
+	function funPrev(curr_){
+		var index=curr_;
+		index-=1;
+		if(index<0) index=len;
+		return index;
+	}
+	function funNext(curr_){
+		var index=curr_;
+		index+=1;
+		if(index>len) index=0;
+		return index;
+	}
+	function funShow(curr_){
+		//top.animate({"scrollLeft":curr_*960},{"duration":200});
+		for(var i=0;i<=len;i++){
+			if(i==curr_) continue;
+			//$(lis[i]).fadeOut("slow");
+			$(lis[i]).find(".image").fadeOut("slow");
+			//$(lis[i]).find(".text_bg").css("display","none");
+			//$(lis[i]).find(".text").fadeOut("slow");
+			$(lis[i]).css("display","none");
+		}
+		$(lis[curr_]).fadeIn("fast");
+		
+		$(lis[curr_]).css("display","block");
+		$(lis[curr_]).find(".image").fadeIn("slow");
+		//$(lis[curr_]).find(".text_bg").css("display","block").css("zoom","1");
+		//$(lis[curr_]).find(".text").fadeIn(100);
+		as.removeClass("active");
+		$(as[curr_]).addClass("active");
+		//curr=curr_;
+	}
+	btnNext.click(function(){
+		curr=funNext(curr);
+		funShow(curr);
+		$(this).blur();
+	});
+	btnPrev.click(function(){
+		curr=funPrev(curr);
+		funShow(curr);
+		$(this).blur();
+	});
+	obj.hover(function(){funPause()},function(){funPlay()})
+	this.inits=function(){
+		funShow(curr);
+		//curr=funNext(curr);
+		funPlay();
+		as.each(function(s,a){
+			a=$(a);
+			a.click(function(){
+				funShow(s);
+				curr=s;
+				$(this).blur();
+			});
+		});
+	}
+}
+(new funRoll("rollimg")).inits();
+</script>
+          
+<div class="vspace_40"></div>
+<div class="column_1000">
+    <div class="col_l_650">
+    	<a href="#"><img src="images/ad01.jpg" width="650" height="90"/></a>
+    </div>
+    <div class="col_r_310">
+    	<a href="#"><img src="images/ad02.jpg" width="310" height="90"/></a>
+    </div>
+</div>
+<div class="vspace_40"></div>
+<div class="column_1000">
+	<div class="col_l_650">
+    	<div class="tab_20140628">
+        	<a class="cur" href="#">星球NEWS</a>
+            <a href="#">自然猎奇</a>
+            <a href="#">探索发现</a>
+            <a href="#">星球乐趣</a>
+            <a href="#">生态之殇</a>
+        </div>
+        <div class="vspace_40"></div>
+        <div class="list201406281">
+        	<h3>
+            	<span class="l"><a href="#">美洲剑齿虎再添新证据起底史前世纪添新证据起底</a></span>
+            	<span class="r" >
+                    <a class="share_cur" href="#">分享</a>
+                    <div class="share_box" style="display:none;">
+                    	<img width="41" height="12" class="left" src="style/img/share_cur.jpg">
+                    	<a class="right" href="javascript:;"></a>
+                        <div class="clear"></div>
+                        <div class="line"></div>
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                               <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                       <script  type="text/javascript">
+			$(function(){
+				$(".list201406281 .share_cur").hover(function(){
+					$(".list201406281 .share_box").css("display","block");
+				},			
+				function(){
+				$(".list201406281 .share_box").bind("mouseover", function(){
+				$(this).css("display","block");
+				});
+			});
+		
+			$(".list201406281 .share_box").bind("mouseout", function(){
+				$(".list201406281 .share_box").css("display","none");
+			}); 
+			$(".list201406281 .right").click(function(){
+			$(".list201406281 .share_box").css("display","none");
+			});
+			
+		})
+                    </script>
+                    <a class="collection" href="#">收藏</a>
+                </span>
+                <div class="clear"></div>
+            </h3>
+            <div class="list_text">
+            	 <div class="l">
+            	 	<a href="#"><img src="images/listpic01.jpg" width="217" height="124"/></a>
+                 </div>
+           		 <p>人们普遍公认，第三纪才是剑齿动物的鼎盛时期。到了第四纪的更新世，各种现生的猫科和犬。人们普遍公认，第三纪才是剑齿动物的鼎盛时期。<span>[<a>详细</a>]</span></p>
+                 <h4><a href="#">剑齿虎</a><a href="#">史前世纪</a><a href="#">博物馆</a><a href="#">化石</a></h4>
+            </div>
+           
+        </div>
+        <div class="list_line"></div>
+        <div class="list20140628">
+        	<h3>
+            	<span class="l"><a href="#">美洲剑齿虎再添新证据起底史前世纪添新证据起底</a></span>
+            	<span class="r" >
+                    <a class="share_cur" href="#">分享</a>
+                    <div class="share_box" style="display:none;">
+                    	<img width="41" height="12" class="left" src="style/img/share_cur.jpg">
+                    	<a class="right" href="javascript:;"></a>
+                        <div class="clear"></div>
+                        <div class="line"></div>
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                               <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    
+                    <a class="collection" href="#">收藏</a>
+                </span>
+                <div class="clear"></div>
+            </h3>
+            <div class="list_text">
+            	 <div class="l">
+            	 	<a href="#"><img src="images/listpic01.jpg" width="217" height="124"/></a>
+                    <em></em>
+                 </div>
+           		 <p>人们普遍公认，第三纪才是剑齿动物的鼎盛时期。到了第四纪的更新世，各种现生的猫科和犬。人们普遍公认，第三纪才是剑齿动物的鼎盛时期。<span>[<a>详细</a>]</span></p>
+                 <h4><a href="#">剑齿虎</a><a href="#">史前世纪</a><a href="#">博物馆</a><a href="#">化石</a></h4>
+            </div>
+        </div>
+     	<div class="list_line"></div>
+         <div class="list20140628">
+        	<h3>
+            	<span class="l"><a href="#">美洲剑齿虎再添新证据起底史前世纪添新证据起底</a></span>
+            	<span class="r" >
+                    <a class="share_cur" href="#">分享</a>
+                    <div class="share_box" style="display:none;">
+                    	<img width="41" height="12" class="left" src="style/img/share_cur.jpg">
+                    	<a class="right" href="javascript:;"></a>
+                        <div class="clear"></div>
+                        <div class="line"></div>
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                               <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    
+                    <a class="collection" href="#">收藏</a>
+                </span>
+                <div class="clear"></div>
+            </h3>
+            <div class="list_text">
+            	 <div class="l">
+            	 	<a href="#"><img src="images/listpic01.jpg" width="217" height="124"/></a>
+                    <em></em>
+                 </div>
+           		 <p>人们普遍公认，第三纪才是剑齿动物的鼎盛时期。到了第四纪的更新世，各种现生的猫科和犬。人们普遍公认，第三纪才是剑齿动物的鼎盛时期。<span>[<a>详细</a>]</span></p>
+                 <h4><a href="#">剑齿虎</a><a href="#">史前世纪</a><a href="#">博物馆</a><a href="#">化石</a></h4>
+            </div>
+        </div>
+     	<div class="list_line"></div>
+        <div class="list20140628">
+        	<h3>
+            	<span class="l"><a href="#">美洲剑齿虎再添新证据起底史前世纪添新证据起底</a></span>
+            	<span class="r" >
+                    <a class="share_cur" href="#">分享</a>
+                    <div class="share_box" style="display:none;">
+                    	<img width="41" height="12" class="left" src="style/img/share_cur.jpg">
+                    	<a class="right" href="javascript:;"></a>
+                        <div class="clear"></div>
+                        <div class="line"></div>
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                               <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    
+                    <a class="collection" href="#">收藏</a>
+                </span>
+                <div class="clear"></div>
+            </h3>
+            <div class="list_text">
+            	 <div class="l">
+            	 	<a href="#"><img src="images/listpic01.jpg" width="217" height="124"/></a>
+                    <em></em>
+                 </div>
+           		 <p>人们普遍公认，第三纪才是剑齿动物的鼎盛时期。到了第四纪的更新世，各种现生的猫科和犬。人们普遍公认，第三纪才是剑齿动物的鼎盛时期。<span>[<a>详细</a>]</span></p>
+                 <h4><a href="#">剑齿虎</a><a href="#">史前世纪</a><a href="#">博物馆</a><a href="#">化石</a></h4>
+            </div>
+        </div>
+     	<div class="list_line"></div>
+         <div class="list20140628">
+        	<h3>
+            	<span class="l"><a href="#">美洲剑齿虎再添新证据起底史前世纪添新证据起底</a></span>
+            	<span class="r" >
+                    <a class="share_cur" href="#">分享</a>
+                    <div class="share_box" style="display:none;">
+                    	<img width="41" height="12" class="left" src="style/img/share_cur.jpg">
+                    	<a class="right" href="javascript:;"></a>
+                        <div class="clear"></div>
+                        <div class="line"></div>
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                               <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    
+                    <a class="collection" href="#">收藏</a>
+                </span>
+                <div class="clear"></div>
+            </h3>
+            <div class="list_text">
+            	 <div class="l">
+            	 	<a href="#"><img src="images/listpic01.jpg" width="217" height="124"/></a>
+                    <em></em>
+                 </div>
+           		 <p>人们普遍公认，第三纪才是剑齿动物的鼎盛时期。到了第四纪的更新世，各种现生的猫科和犬。人们普遍公认，第三纪才是剑齿动物的鼎盛时期。<span>[<a>详细</a>]</span></p>
+                 <h4><a href="#">剑齿虎</a><a href="#">史前世纪</a><a href="#">博物馆</a><a href="#">化石</a></h4>
+            </div>
+        </div>
+     	<div class="list_line"></div>
+        <div class="list20140628">
+        	<h3>
+            	<span class="l"><a href="#">美洲剑齿虎再添新证据起底史前世纪添新证据起底</a></span>
+            	<span class="r" >
+                    <a class="share_cur" href="#">分享</a>
+                    <div class="share_box" style="display:none;">
+                    	<img width="41" height="12" class="left" src="style/img/share_cur.jpg">
+                    	<a class="right" href="javascript:;"></a>
+                        <div class="clear"></div>
+                        <div class="line"></div>
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                               <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    
+                    <a class="collection" href="#">收藏</a>
+                </span>
+                <div class="clear"></div>
+            </h3>
+            <div class="list_text">
+            	 <div class="l">
+            	 	<a href="#"><img src="images/listpic01.jpg" width="217" height="124"/></a>
+                    <em></em>
+                 </div>
+           		 <p>人们普遍公认，第三纪才是剑齿动物的鼎盛时期。到了第四纪的更新世，各种现生的猫科和犬。人们普遍公认，第三纪才是剑齿动物的鼎盛时期。<span>[<a>详细</a>]</span></p>
+                 <h4><a href="#">剑齿虎</a><a href="#">史前世纪</a><a href="#">博物馆</a><a href="#">化石</a></h4>
+            </div>
+        </div>
+     	<div class="list_line"></div>
+        <div class="list20140628">
+        	<h3>
+            	<span class="l"><a href="#">美洲剑齿虎再添新证据起底史前世纪添新证据起底</a></span>
+            	<span class="r" >
+                    <a class="share_cur" href="#">分享</a>
+                    <div class="share_box" style="display:none;">
+                    	<img width="41" height="12" class="left" src="style/img/share_cur.jpg">
+                    	<a class="right" href="javascript:;"></a>
+                        <div class="clear"></div>
+                        <div class="line"></div>
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                               <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    
+                    <a class="collection" href="#">收藏</a>
+                </span>
+                <div class="clear"></div>
+            </h3>
+            <div class="list_text">
+            	 <div class="l">
+            	 	<a href="#"><img src="images/listpic01.jpg" width="217" height="124"/></a>
+                    <em></em>
+                 </div>
+           		 <p>人们普遍公认，第三纪才是剑齿动物的鼎盛时期。到了第四纪的更新世，各种现生的猫科和犬。人们普遍公认，第三纪才是剑齿动物的鼎盛时期。<span>[<a>详细</a>]</span></p>
+                 <h4><a href="#">剑齿虎</a><a href="#">史前世纪</a><a href="#">博物馆</a><a href="#">化石</a></h4>
+            </div>
+        </div>
+     	<div class="list_line"></div>
+        <div class="list20140628">
+        	<h3>
+            	<span class="l"><a href="#">美洲剑齿虎再添新证据起底史前世纪添新证据起底</a></span>
+            	<span class="r" >
+                    <a class="share_cur" href="#">分享</a>
+                    <div class="share_box" style="display:none;">
+                    	<img width="41" height="12" class="left" src="style/img/share_cur.jpg">
+                    	<a class="right" href="javascript:;"></a>
+                        <div class="clear"></div>
+                        <div class="line"></div>
+                        <table width="100%" cellspacing="0" cellpadding="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                               <tr>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                                <td>
+                               		<a style="cursor:pointer;">
+                                    	<img  src="http://p2.img.cctvpic.com/Library/content2010/image/icon/share/kaixin.gif">
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                    
+                    <a class="collection" href="#">收藏</a>
+                </span>
+                <div class="clear"></div>
+            </h3>
+            <div class="list_text">
+            	 <div class="l">
+            	 	<a href="#"><img src="images/listpic01.jpg" width="217" height="124"/></a>
+                    <em></em>
+                 </div>
+           		 <p>人们普遍公认，第三纪才是剑齿动物的鼎盛时期。到了第四纪的更新世，各种现生的猫科和犬。人们普遍公认，第三纪才是剑齿动物的鼎盛时期。<span>[<a>详细</a>]</span></p>
+                 <h4><a href="#">剑齿虎</a><a href="#">史前世纪</a><a href="#">博物馆</a><a href="#">化石</a></h4>
+            </div>
+        </div>
+     	<div class="list_line"></div>
+        <div class="list_more">
+        	<a href="#">点击查看更多>></a>
+        </div>
+        <div class="vspace_40"></div>
+        <ul class="other01">
+        	<li class="other01_01">
+           		<em>视觉</em>
+            	<img src="images/other01.jpg"/>
+                <h4><a href="#">美洲剑齿虎再添新证据起</a></h4>
+                <p>美洲剑齿虎再添新证据起美洲剑齿虎再添新证据起美洲剑齿虎再添新证据起</p>
+            </li>
+            <li class="other01_02">
+            	<em>人物</em>
+            	<a href="#"><img src="images/other02.jpg"/></a>
+                <div class="other01_02_play"></div>
+            </li>
+            <li class="other01_01 last r">
+            	<em>话题</em>
+            	<img src="images/other01.jpg"/>
+                <h4><a href="#">美洲剑齿虎再添新证据起</a></h4>
+                <p>美洲剑齿虎再添新证据起美洲剑齿虎再添新证据起美洲剑齿虎再添新证据起</p>
+            </li>
+        </ul>
+    </div>
+    <div class="col_r_310">
+    	<div class="model20140628">
+        	<div class="mhd">
+        		<span class="mhd_title"><a href="#">星球联盟</a></span>
+            	<span class="mhd_more"><a href="#">更多</a></span>
+       		</div>
+            <div class="vspace_10 "></div>
+            <div class="mbd">
+                <div class="mbd01">
+                    <a class="mbd_join01" href="#">加入</a>
+                    <a class="mbd_pic01" href="#"><img src="images/mbdpic01.jpg" width="90" height="68"/></a>
+                    <h4>
+                        <a href="#">钓鱼者 联盟</a>
+                        <span><br/>钓鱼快乐，千奇百态<br/>势力6188人</span>
+                    </h4>
+                    <div class="clear"></div>
+                </div>
+                 <div class="mbd01">
+                    <a class="mbd_join01" href="#">加入</a>
+                    <a class="mbd_pic01" href="#"><img src="images/mbdpic01.jpg" width="90" height="68"/></a>
+                    <h4>
+                        <a href="#">钓鱼者 联盟</a>
+                        <span><br/>钓鱼快乐，千奇百态<br/>势力6188人</span>
+                    </h4>
+                    <div class="clear"></div>
+                </div>
+                 <div class="mbd01">
+                    <a class="mbd_join01" href="#">加入</a>
+                    <a class="mbd_pic01" href="#"><img src="images/mbdpic01.jpg" width="90" height="68"/></a>
+                    <h4>
+                        <a href="#">钓鱼者 联盟</a>
+                        <span><br/>钓鱼快乐，千奇百态<br/>势力6188人</span>
+                    </h4>
+                    <div class="clear"></div>
+                </div>
+                 <div class="mbd01">
+                    <a class="mbd_join01" href="#">加入</a>
+                    <a class="mbd_pic01" href="#"><img src="images/mbdpic01.jpg" width="90" height="68"/></a>
+                    <h4>
+                        <a href="#">钓鱼者 联盟</a>
+                        <span><br/>钓鱼快乐，千奇百态<br/>势力6188人</span>
+                    </h4>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="vspace_35"></div>
+    	<div class="model2014062801">
+        	<div class="mhd">
+            	<span class="mhd_title"><a href="#">联盟行动</a></span>
+            	<span class="mhd_more"><a href="#">更多</a></span>
+            </div>
+            <div class="vspace_10 "></div>
+            <div class="mbd">
+            	<a class="mbd_pic02" href="#"><img src="images/mbdpic02.jpg" width="288" height="126"/></a>
+                <div class="vspace_10"></div>
+                <h4 class="mbd_title"><a href="#">拯救江豚行动</a></h4>
+                <p>人们普遍公认，第三纪才是剑齿动物的鼎盛时期。到了第四纪的更新世，各种现生的猫科和犬。人们普遍公认，第三纪才是剑齿动物的鼎盛时期。</p>				<span class="mbd_time">2014年5月19日 20：00</span>
+                <span class="mbd_place">北京 玉渊潭公园北门</span>
+                <a class="mbd_join02" href="#">我要加入</a>
+                <div class="vspace_30"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="vspace_35"></div>
+        <div class="model20140628">
+        	<div class="mhd">
+            	<span class="mhd_title"><a href="#">星球联盟</a></span>
+                
+            </div>
+            <div class="vspace_10"></div>
+            <div class="mbd">
+            	<a class="mbd_pic03" href="#"><img src="images/mbdpic03.jpg" width="290" height="225"/></a>
+            </div>
+        </div>
+         <div class="vspace_35"></div>
+         <div class="model2014062801">
+         	<div class="mhd">
+            	<span class="mhd_title"><a href="#">联盟行动</a></span>
+            	<span class="mhd_more"><a href="#">更多</a></span>
+            </div>
+            <div class="vspace_10 "></div>
+             <div class="mbd01" id="mbd0214">
+             	<ul>
+                	<li class="l">
+                    	<img src="images/mbdpic04.jpg" width="140" height="140"/>
+                        <div class="mbd01_text">
+                        	<table><tr><td ><a href="#">美洲剑齿虎再添新证据美洲剑齿虎再添新证据</a></td></tr></table>
+                        </div>
+                    </li>
+                    <li class="r"><img src="images/mbdpic04.jpg" width="140" height="140"/>
+                    	<div class="mbd01_text">
+                        	<table><tr><td ><a href="#">美洲剑齿虎再添新证据美洲剑齿虎再添新证据</a></td></tr></table>
+                        </div>
+                    </li>
+                    <li class="l"><img src="images/mbdpic04.jpg" width="140" height="140"/>
+                    	<div class="mbd01_text">
+                        	<table><tr><td ><a href="#">美洲剑齿虎再添新证据美洲剑齿虎再添新证据</a></td></tr></table>
+                        </div>
+                    </li>
+                    <li class="r"><img src="images/mbdpic04.jpg" width="140" height="140"/>
+                    	<div class="mbd01_text">
+                        	<table><tr><td ><a href="#">美洲剑齿虎再添新证据美洲剑齿虎再添新证据</a></td></tr></table>
+                        </div>
+                    </li>
+                    <li class="l"><img src="images/mbdpic04.jpg" width="140" height="140"/>
+                    	<div class="mbd01_text">
+                        	<table><tr><td ><a href="#">美洲剑齿虎再添新证据美洲剑齿虎再添新证据</a></td></tr></table>
+                        </div>
+                    </li>
+                    <li class="r"><img src="images/mbdpic04.jpg" width="140" height="140"/>
+                    	<div class="mbd01_text">
+                        	<table><tr><td ><a href="#">美洲剑齿虎再添新证据美洲剑齿虎再添新证据</a></td></tr></table>
+                        </div>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+             	<script type="text/javascript">
+                	$(function(){
+						$("#mbd0214 li").hover(function(){
+							$(this).find("div").css("display","block");
+								
+						},function(){
+							$(this).find("div").css("display","none");
+							
+						})
+					});
+                </script>
+             </div>
+         </div>
+         <div class="vspace_35"></div>
+         <img src="images/mbdpic05.jpg" width="310" height="225"/>
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="vspace_50"></div>
+<div class="list_line"></div>
+<div class="vspace_40"></div>
+<div class="column_1000">
+	<div class="col_l_650 ">
+    	<div class="page_bottom">
+        	<span>合作伙伴</span><br />
+    		<a href="#">关于我们</a><a href="#">媒体报道</a><a href="#">帮助中心关于我们</a><a href="#">媒体报道</a><a href="#">帮助中心</a><a href="#">关于我们</a><a href="#">媒体报道</a><a href="#">帮助中心</a><a href="#">内容专区</a><a href="#">免责声明</a><a href="#">联系我们</a><a href="#">移动版</a><a href="#">移动应用</a><a href="#">关于我们</a><a href="#">媒体报道</a><a href="#">帮助中心</a><a href="#">关于我们</a><a href="#">媒体报道</a><a href="#">帮助中心</a><a href="#">关于我们</a><a href="#">媒体报道</a><a href="#">帮助中心</a><a href="#">内容专区</a><a href="#">免责声明</a><a href="#">联系我们</a><a href="#">移动版</a><a href="#">移动应用</a><a href="#">关于我们</a><a href="#">媒体报道</a><a href="#">帮助中心</a><a href="#">关于我们</a><a href="#">媒体报道</a>
+            <div class="vspace_20"></div>
+            <div class="line_dotted"></div>
+             <div class=" vspace_17"></div>
+             <div class="page_bottom_01"><a href="#">关于我们</a>丨<a href="#">人才招聘</a>丨<a href="#">权利声明</a>丨<a href="#">免责声明</a>丨<a href="#">法律顾问</a>丨<a href="#">联系我们</a>丨<a href="#">帮助中心</a></div>
+             <p>Copyright © 2014 蔚蓝星球   京ICP备09043258号  京公网安备110000000018号<br/>
+本作品采用知识共享署名-非商业性使用 2.5 中国大陆许可协议进行许可<br />
+本站不提供任何视听上传服务  所有内容均来自视频分享站点所提供的公开引用资源</p>
+        </div>
+    	
+    </div>
+    <div class="col_r_310">
+    	<div class="page_bottom_right">
+            <div class="page_bottom_right_text">关注我们</div>
+            <img src="images/mbdpic06.jpg" width="217" height="217"/>
+        </div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+
+<div class="floatingLayer">
+	<ul>
+		<li class="floatingLayer_01"></li>
+        <li class="floatingLayer_02"></li>
+        <li class="floatingLayer_03"></li>
+        <li class="floatingLayer_04"></li>
+	</ul>
+    <script type="text/javascript">
+    	function rightBar() {
+        	$(window).scroll(function () {
+            	var scroll_top = $(document).scrollTop();
+           		if (scroll_top >= 100) {
+                	$(".floatingLayer").show();}
+                else
+                   {$(".floatingLayer").hide();}           
+        	});
+			 $(".floatingLayer_04").click(function () {
+            	location.hash = "top";
+           		 $(".floatingLayer").hide();
+       		 });	
+        	
+    	}
+        rightBar();
+    </script>
+</div>
+
+
+
+
+
+</body>
+</html>

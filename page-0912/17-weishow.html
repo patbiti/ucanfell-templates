@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>微页面</title>
+<link href="style/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+</head>
+
+<body>
+<div class="header">
+	<div class="mid">
+        <ul>
+            <li><a href="#">蔚蓝星球</a></li>
+            <li><a href="#">客户端</a></li>
+            <li><a href="#">系列</a></li>
+        </ul>
+        <div class="search">
+            <input type="text"/>
+            <a class="search_btn"></a>
+        </div>
+        <div class="clear "></div>
+    </div>
+</div>
+<div class="atlas_logo">
+	<div class="column_1000">
+    	<div class="l">
+    		<img src="images/logo_black-.png" width="143" height="44"/>
+    		<span><a href="#">首页</a></span>
+    		<span><a href="#">图集</a></span>
+    		<span><a href="#">专题</a></span>
+    		<span><a href="#">系列</a></span>
+            <span><a href="#">幕后</a></span>
+    		<span><a href="#">活动</a></span>
+    	</div>
+		<div class="r">
+    		<input type="text" value="账号"/>
+        	<input type="text" value="密码"/>
+        	<a href="#">登录</a>
+        	<a href="#">注册</a>
+    	</div>
+    	<div class="clear"></div>
+    </div>
+	
+</div>
+
+<div class="tjcp_indB"> 
+	<div class="bg_ff"></div> 
+</div>
+
+
+
+<div class="body_weishow">
+<div class="column_1000">
+    <div class="list_bbs_nav">
+        <span class="l"><a href="#">我的博客</a>><a href="#">微博主页</a>><a href="#">微秀</a></span>
+    </div>	
+</div>
+
+
+
+<div class="column_1000">
+	<div class="weishow_930">
+    	<div class="weishow_pic">
+        	<img class="pimg" src="images/weishow_pic01.jpg" height="312" width="566"/>
+            <div  style="display:none;" class="fuceng_bg">
+            	<img id="wd" width="566" src="images/weishow_pic01.jpg" />
+                <div class="closed"></div>
+            </div>
+          <script type="text/javascript">
+
+		function scrollpic(){
+			
+			$(".pimg").click(function(){
+				var wd = $("#wd").width();
+				$(".fuceng_bg").css("width",wd);
+				$(".fuceng_bg").show();
+				var ht=document.documentElement.scrollHeight+"px";
+				$(".tjcp_indB .bg_ff").css("height",ht);				
+				$(".tjcp_indB").show();
+			})
+
+			$(".tjcp_indB").click(function(){	
+				$(".fuceng_bg").hide();
+				$(".tjcp_indB").hide();
+			})	
+			
+			$(".closed").click(function(){	
+				$(".fuceng_bg").hide();
+				$(".tjcp_indB").hide();
+			})								
+		}
+
+		$(document).ready(function(){
+			scrollpic();
+		})
+
+	</script>
+            
+            <h2>美丽台阶花廊最可爱的廊最可爱廊最可爱美丽台阶花廊最可爱的廊最可爱廊最可爱美丽台阶花廊最可爱的廊最可爱廊最可爱美丽台阶花廊最可爱的廊</h2>
+            <p>地点地点</p>
+            <a href="#">全文阅读</a>
+            <div class="r">
+            	<span class="weishow_pic_like">352</span><span class="weishow_pic_dislike">352</span><span><em>评</em>352</span>
+            </div>
+        </div>
+         <div class="weishow_photo">
+         	<div class="l">
+            	<img src="images/weishow_photo.jpg" width="124" height="124" />
+            </div>
+        	<div >
+            	<h1>名字名字名字名字名字</h1>
+            	<p>地点地点地点</p>
+                <div class="weishow_photo_btn">
+            		<a href="#">+ 关注</a>
+                </div><br />
+            	<span>关注：1684</span><span>微博：1684</span>
+            </div>
+            
+        </div>
+        
+        <div class="vspace_50"></div>
+        <div class="message">
+        	<div class="mhd">
+            	<span class="mhd_title"><a href="#">评论</a></span>
+            	<span href="#" class="mhd_smile"></span>
+        	</div>
+        	<div class="mbd_message">
+        		<textarea></textarea>
+            	<a href="#" class="mbd_btn">发布</a>
+            	<div class="clear"></div>
+            	<span>共06条</span>
+            	<ul>
+            		<li>
+                 		<div class="r">
+                    		<a href="#">删除</a>|<a href="#">回复</a>
+                    	</div>
+                		<img width="50" height="50" src="images/message_photo.jpg">
+                    	<span><a href="#">吃货控日记：</a>啦啦啦啦啦拉了拉啦啦啦啦啦啦啦啦</span>
+                 	</li>
+                 	<li>
+                 		<div class="r">
+                    		<a href="#">删除</a>|<a href="#">回复</a>
+                    	</div>
+                		<img width="50" height="50" src="images/message_photo.jpg">
+                    	<span><a href="#">吃货控日记：</a>啦啦啦啦啦拉了拉啦啦啦啦啦啦啦啦</span>
+                 	</li>
+                 	<li>
+                 		<div class="r">
+                    		<a href="#">删除</a>|<a href="#">回复</a>
+                    	</div>
+                		<img width="50" height="50" src="images/message_photo.jpg">
+                    	<span><a href="#">吃货控日记：</a>啦啦啦啦啦拉了拉啦啦啦啦啦啦啦啦</span>
+                	</li>
+            	</ul>
+            	<a href="#" class="mbd_more">后面还有3条评论，点击查看&gt;&gt;</a>
+        	</div>
+		</div>
+       
+    </div>
+</div>
+
+
+<div class=" vspace_80"></div>
+<div class="list_line"></div>
+<div class="vspace_40"></div>
+<div class="column_1000">
+	<div class="col_l_650 ">
+    	<div class="page_bottom">
+        	<span>合作伙伴</span><br>
+    		<a href="#">关于我们</a><a href="#">媒体报道</a><a href="#">帮助中心关于我们</a><a href="#">媒体报道</a><a href="#">帮助中心</a><a href="#">关于我们</a><a href="#">媒体报道</a><a href="#">帮助中心</a><a href="#">内容专区</a><a href="#">免责声明</a><a href="#">联系我们</a><a href="#">移动版</a><a href="#">移动应用</a><a href="#">关于我们</a><a href="#">媒体报道</a><a href="#">帮助中心</a><a href="#">关于我们</a><a href="#">媒体报道</a><a href="#">帮助中心</a><a href="#">关于我们</a><a href="#">媒体报道</a><a href="#">帮助中心</a><a href="#">内容专区</a><a href="#">免责声明</a><a href="#">联系我们</a><a href="#">移动版</a><a href="#">移动应用</a><a href="#">关于我们</a><a href="#">媒体报道</a><a href="#">帮助中心</a><a href="#">关于我们</a><a href="#">媒体报道</a>
+            <div class="vspace_20"></div>
+            <div class="line_dotted"></div>
+             <div class=" vspace_17"></div>
+             <div class="page_bottom_01"><a href="#">关于我们</a>丨<a href="#">人才招聘</a>丨<a href="#">权利声明</a>丨<a href="#">免责声明</a>丨<a href="#">法律顾问</a>丨<a href="#">联系我们</a>丨<a href="#">帮助中心</a></div>
+             <p>Copyright &copy; 2014 蔚蓝星球   京ICP备09043258号  京公网安备110000000018号<br>
+本作品采用知识共享署名-非商业性使用 2.5 中国大陆许可协议进行许可<br>
+本站不提供任何视听上传服务  所有内容均来自视频分享站点所提供的公开引用资源</p>
+        </div>
+    	
+    </div>
+    <div class="col_r_310">
+    	<div class="page_bottom_right">
+            <div class="page_bottom_right_text">关注我们</div>
+            <img width="217" height="217" src="images/mbdpic06.jpg">
+        </div>
+    </div>
+    
+    <div class="clear"></div>
+</div>
+
+</div>
+
+
+<div class="floatingLayer">
+	<ul>
+		<li class="floatingLayer_01"></li>
+        <li class="floatingLayer_02"></li>
+        <li class="floatingLayer_03"></li>
+        <li class="floatingLayer_04"></li>
+	</ul>
+    <script type="text/javascript">
+    	function rightBar() {
+        	$(window).scroll(function () {
+            	var scroll_top = $(document).scrollTop();
+           		if (scroll_top >= 100) {
+                	$(".floatingLayer").show();}
+                else
+                   {$(".floatingLayer").hide();}           
+        	});
+			 $(".floatingLayer_04").click(function () {
+            	location.hash = "top";
+           		 $(".floatingLayer").hide();
+       		 });	
+        	
+    	}
+        rightBar();
+    </script>
+</div>
+
+</body>
+</html>
